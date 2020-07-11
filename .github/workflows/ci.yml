@@ -1,0 +1,26 @@
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ setup-ci ]
+    paths:
+      - 'sample/**.js'
+
+jobs:
+  deploy-gas:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+      
+    - name: see paths
+      run: echo ${{github.event_path}}
+        
+    # - name: install clasp
+    #   run: yarn global add @google/clasp --frozen-lockfile
