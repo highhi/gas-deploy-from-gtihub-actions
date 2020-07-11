@@ -20,7 +20,7 @@ jobs:
         node-version: '13.x'
       
     - name: see paths
-      run: echo ${github.event_path}
+      run: echo ${{github.event_path}}
         
     # - name: install clasp
     #   run: yarn global add @google/clasp --frozen-lockfile
